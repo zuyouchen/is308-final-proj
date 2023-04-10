@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 42px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-family: Calibri, sans-serif
+}
+
+.external-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.selections-container {
+    font-family: Calibri, sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.no-data-found {
+    font-family: Calibri, sans-serif;
+    display: none; 
+    text-align: center;
+    margin-top: 40px; 
+    font-size: 24px;
+    color:red;
+}
+
+.chart-container {
+    position: relative;
+    height: 80vh;
+    width: 80vw;
+}
+
+#school-select,
+#level-select,
+#term-select {
+    font-family: Calibri, sans-serif;
+    display: block;
+    margin: 5px;
+    padding: 5px;
+}
+
+footer {
+    font-family: Calibri, sans-serif;
+    font-size: 14px;
+    color: #999;
+    text-align: left;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    opacity: 0.8;
+}
