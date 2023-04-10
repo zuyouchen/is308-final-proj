@@ -32,6 +32,15 @@ body {
     margin-bottom: 5px;
 }
 
+#school-select,
+#level-select,
+#term-select,
+#chart-type-select {
+    font-family: Calibri, sans-serif;
+    display: block;
+    margin: 5px;
+    padding: 5px;
+}
 .no-data-found {
     font-family: Calibri, sans-serif;
     display: none;
@@ -50,15 +59,8 @@ body {
     position: relative;
     height: 80vh;
     width: 80vw;
-}
-
-#school-select,
-#level-select,
-#term-select {
-    font-family: Calibri, sans-serif;
-    display: block;
-    margin: 5px;
-    padding: 5px;
+    display: flex;
+    justify-content: center;
 }
 
 footer {

@@ -60,7 +60,6 @@
                 <option value="Labor & Empl. Rel. "> Labor and Employer Relations </option>
                 <option value="School of Social Work "> School of Social Work </option>
                 <option value="Carle Illinois Medicine "> Carle Illinois College of Medicine </option>
-
             </select>
 
             <label for="level-select">Select Level:</label>
@@ -70,12 +69,17 @@
                 <option value="Professional ">Professional </option>
             </select>
         
-
+            <label for="chart-type-select">Select Chart:</label>
+            <select id="chart-type-select">
+                <option value="bar">Bar</option>
+                <option value="doughnut">Doughnut</option>
+                <option value="polar">Polar</option>
+            </select>
         
         </div>
         <div id="no-data-message" class="no-data-found"></div>
         <div class="chart-container">
-            <canvas id="enrollment-chart"></canvas>
+            <canvas id="enrollment-bar-chart"></canvas>
         </div>
     </div>
 

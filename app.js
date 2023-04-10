@@ -1,6 +1,7 @@
 const schoolSelect = document.getElementById("school-select");
 const levelSelect = document.getElementById("level-select");
 const termSelect = document.getElementById('term-select');
+const chartTypeSelect = document.getElementById('chart-type-select')
 Chart.defaults.font.family = 'Calibri'
 
 // TODO: clarify that "All" means including mixed multi-response
@@ -45,13 +46,8 @@ const transformData = (row) => {
   return enrollmentData;
 };
 
-let enrollmentChart;
-const plotChart = (enrollmentData) => {
-  if (enrollmentChart) {
-    enrollmentChart.destroy();
-  }
-  const ctx = document.getElementById("enrollment-chart").getContext("2d");
-  enrollmentChart = new Chart(ctx, {
+function barChartConfig (enrollmentData) {
+  return {
     type: "bar",
     data: {
       labels: enrollmentDataLabels,
@@ -68,7 +64,7 @@ const plotChart = (enrollmentData) => {
     options: {
       plugins: {
         title: {
-          display: false, 
+          display: false,
           text: schoolSelect.value + levelSelect.value + "Students",
           padding: {
             top: 10,
@@ -78,7 +74,112 @@ const plotChart = (enrollmentData) => {
       },
       responsive: true
     }
-  });
+  };
+}
+
+function polarChartConfig (enrollmentData) {
+  return {
+    type: "polarArea",
+    data: {
+      labels: enrollmentDataLabels,
+      datasets: [
+        {
+          label: "Students Enrolled",
+          data: Object.values(enrollmentData),
+          backgroundColor: [
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(90, 142, 226, 0.5)',
+            'rgba(0, 97, 164, 0.5)',
+            'rgba(121, 120, 210, 0.5)',
+            'rgba(146, 96, 186, 0.5)',
+            'rgba(163, 69, 155, 0.5)',
+            'rgba(171, 37, 118, 0.5)',
+            'rgba(0, 40, 97, 0.5)'
+          ],
+          borderColor: [
+            'rgba(54, 162, 235, 1)',
+            'rgba(90, 142, 226, 1)',
+            'rgba(0, 97, 164, 1)',
+            'rgba(121, 120, 210, 1)',
+            'rgba(146, 96, 186, 1)',
+            'rgba(163, 69, 155, 1)',
+            'rgba(171, 37, 118, 1)',
+            'rgba(0, 40, 97, 1)'
+          ]
+        },
+      ],
+    },
+    options: {
+      plugins: {
+        title: {
+          display: false,
+          text: schoolSelect.value + levelSelect.value + "Students",
+          padding: {
+            top: 10,
+            bottom: 10
+          }
+        }
+      },
+      responsive: true
+    }
+  };
+}
+
+function doughnutChartConfig (enrollmentData) {
+  return {
+    type: "doughnut",
+    data: {
+      labels: enrollmentDataLabels,
+      datasets: [
+        {
+          label: "Students Enrolled",
+          data: Object.values(enrollmentData),
+          backgroundColor: [
+            'rgba(54, 162, 235, 0.5)',
+            'rgba(90, 142, 226, 0.5)',
+            'rgba(0, 97, 164, 0.5)',
+            'rgba(121, 120, 210, 0.5)',
+            'rgba(146, 96, 186, 0.5)',
+            'rgba(163, 69, 155, 0.5)',
+            'rgba(171, 37, 118, 0.5)',
+            'rgba(0, 40, 97, 0.5)'
+          ],
+          borderColor: [
+            'rgba(54, 162, 235, 1)',
+            'rgba(90, 142, 226, 1)',
+            'rgba(0, 97, 164, 1)',
+            'rgba(121, 120, 210, 1)',
+            'rgba(146, 96, 186, 1)',
+            'rgba(163, 69, 155, 1)',
+            'rgba(171, 37, 118, 1)',
+            'rgba(0, 40, 97, 1)'
+          ]
+        },
+      ],
+    },
+    options: {
+      plugins: {
+        title: {
+          display: false,
+          text: schoolSelect.value + levelSelect.value + "Students",
+          padding: {
+            top: 10,
+            bottom: 10
+          }
+        }
+      },
+      responsive: true
+    }
+  };
+}
+
+let enrollmentChart;
+const plotEnrollmentChart = (enrollmentData, config) => {
+  if (enrollmentChart) {
+    enrollmentChart.destroy();
+  }
+  const ctx = document.getElementById("enrollment-bar-chart").getContext("2d");
+  enrollmentChart = new Chart(ctx, config)
 }
 
 const updateChart = async () => {
@@ -86,11 +187,19 @@ const updateChart = async () => {
   const filteredRow = filterData(data);
   if (filteredRow) {
     const enrollmentData = transformData(filteredRow);
-    plotChart(enrollmentData);
+    if (chartTypeSelect.value == 'bar') {
+      plotEnrollmentChart(enrollmentData, barChartConfig(enrollmentData));
+    } 
+    if (chartTypeSelect.value == 'doughnut') {
+      plotEnrollmentChart(enrollmentData, doughnutChartConfig(enrollmentData));
+    }
+    if (chartTypeSelect.value == 'polar') {
+      plotEnrollmentChart(enrollmentData, polarChartConfig(enrollmentData));
+    }
     document.getElementById('no-data-message').style.display = 'none';
   } else {
     console.error(`No matching row found for ${schoolSelect.value}, ${levelSelect.value}, ${termSelect.value}`);
-    document.getElementById('no-data-message').innerHTML = `<b>No data found.</b> <br> Please <b>select</b> a different <b>level</b>. <br> ${levelSelect.value} students <b>do not exist</b> in this college.`;
+    document.getElementById('no-data-message').innerHTML = `<b>No data found.</b> <br> Please <b>select</b> a different <b>term, college, or level</b>. <br> ${levelSelect.value} students <b>may not exist</b> in this college.`;
     document.getElementById('no-data-message').style.display = 'block';
     if (enrollmentChart) {
       enrollmentChart.destroy();
@@ -98,9 +207,9 @@ const updateChart = async () => {
   }
 };
 
-
 schoolSelect.addEventListener("change", updateChart);
 levelSelect.addEventListener("change", updateChart);
 termSelect.addEventListener("change", updateChart);
+chartTypeSelect.addEventListener("change", updateChart);
 
 updateChart();
