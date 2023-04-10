@@ -90,7 +90,7 @@ const updateChart = async () => {
     document.getElementById('no-data-message').style.display = 'none';
   } else {
     console.error(`No matching row found for ${schoolSelect.value}, ${levelSelect.value}, ${termSelect.value}`);
-    document.getElementById('no-data-message').innerHTML = `No data found. <br> Please select a diffferent level. <br> No ${levelSelect.value} students exist in this college.`;
+    document.getElementById('no-data-message').innerHTML = `<b>No data found.</b> <br> Please <b>select</b> a different <b>level</b>. <br> ${levelSelect.value} students <b>do not exist</b> in this college.`;
     document.getElementById('no-data-message').style.display = 'block';
     if (enrollmentChart) {
       enrollmentChart.destroy();

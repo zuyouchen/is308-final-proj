@@ -34,13 +34,18 @@ body {
 
 .no-data-found {
     font-family: Calibri, sans-serif;
-    display: none; 
+    display: none;
     text-align: center;
-    margin-top: 40px; 
     font-size: 24px;
-    color:red;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;  
+    background-color: rgba(255, 0, 0, 0.3);
+    border: 2px solid darkred;
 }
-
+        
 .chart-container {
     position: relative;
     height: 80vh;
