@@ -7,84 +7,27 @@
     <meta http-equiv='cache-control' content='no-cache'> 
     <meta http-equiv='expires' content='0'> 
     <meta http-equiv='pragma' content='no-cache'>
-    <title>IS308 - Unessay Project</title>
-    <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
+    <title>IS308 - Unessay Project - Main Page</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <h1 class="title">UIUC Enrollment Data</h1>
-
-    <div class="external-container">
-        <div class="selections-container">
-            <label for="term-select">Select Term (Semester, Year):</label>
-            <select id="term-select">
-                <option value="sp23">Spring 2023</option>
-                <option value="fa22">Fall 2022</option>
-                <option value="su22">Summer 2022</option>
-                <option value="sp22">Spring 2022</option>
-                <option value="fa21">Fall 2021</option>
-                <option value="su21">Summer 2021</option>
-                <option value="su21">Spring 2021</option>
-                <option value="fa20">Fall 2020</option>
-                <option value="su20">Summer 2020</option>
-                <option value="sp20">Spring 2020</option>
-                <option value="fa19">Fall 2019</option>
-                <option value="su19">Summer 2019</option>
-                <option value="sp19">Spring 2019</option>               
-                <option value="fa18">Fall 2018</option>
-                <option value="su18">Summer 2018</option>
-                <option value="sp18">Spring 2018</option>
-                <option value="fa17">Fall 2017</option>
-                <option value="su17">Summer 2017</option>
-                <option value="sp17">Spring 2017</option>                
-            </select>
-
-            <label for="school-select">Select College:</label>
-            <select id="school-select">
-                <option value="School of Information Sciences "> School of Information Sciences </option>
-                <option value="Agr, Cons, Env Sci "> Agricultural, Consumer, and Environmental Science </option>
-                <option value="Business "> Gies College of Business </option>
-                <option value="Education "> Education </option>
-                <option value="Grainger Engineering "> Grainger Engineering </option>
-                <option value="Fine & Applied Arts "> Fine and Applied Arts </option>
-                <option value="Graduate College "> Graduate College </option>
-                <option value="Media "> College of Media </option>
-                <option value="Law "> College of Law </option>
-                <option value="Liberal Arts & Sci "> Liberal Arts and Sciences (LAS) </option>
-                <option value="General Studies "> General Studies </option>
-                <option value="Applied Health Sci "> Applied Health Sciences </option>
-                <option value="Veterinary Medicine "> Veterinary Medicine </option>
-                <option value="Labor & Empl. Rel. "> Labor and Employer Relations </option>
-                <option value="School of Social Work "> School of Social Work </option>
-                <option value="Carle Illinois Medicine "> Carle Illinois College of Medicine </option>
-            </select>
-
-            <label for="level-select">Select Level:</label>
-            <select id="level-select">
-                <option value="Undergraduate ">Undergraduate </option>
-                <option value="Graduate ">Graduate </option>
-                <option value="Professional ">Professional </option>
-            </select>
-        
-            <label for="chart-type-select">Select Chart:</label>
-            <select id="chart-type-select">
-                <option value="bar">Bar</option>
-                <option value="doughnut">Doughnut</option>
-                <option value="polar">Polar</option>
-            </select>
-        
-        </div>
-        <div id="no-data-message" class="no-data-found"></div>
-        <div class="chart-container">
-            <canvas id="enrollment-bar-chart"></canvas>
-        </div>
+    <div class="title-container" style="text-align: center; margin-top: 0; font-size:100px; margin-bottom:-25px">
+        <h1 class="animated-title">UIUC Enrollment Data</h1>
     </div>
 
-    <footer>Evan Chen, Spring 2023. Data taken from the <a href="https://www.dmi.illinois.edu/">UIUC Division of Management Information (DMI)</a></footer>
+    <div class="button-container">
+        <button class="fancy-button" role="button" onclick="location.href='pages/granular.html'">See Granular Statistics</button>
+        <button class="fancy-button" role="button" onclick="location.href='pages/cumulative.html'">See Cumulative Statistics</button>
+    </div>
 
-    <script src="app.js"></script>
+    <blockquote class="blockquote">
+        Examining power means naming and explaining the forces of oppression that are so baked into our daily lives—and into our datasets, our databases, and our algorithms—that we often don’t even see them.        
+        <span>Catherine D'Ignazio and Lauren Klein, <i>Data Feminism</i></span>
+    </blockquote>
+
+
+    <footer>Evan Chen, Spring 2023. Data taken from the <a href="https://www.dmi.illinois.edu/">UIUC Division of Management Information (DMI)</a></footer>
 </body>
 </html>

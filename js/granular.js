@@ -22,7 +22,7 @@ const enrollmentDataLabels = [
   "Hispanic",
   "African American",
   "Native American",
-  "Hawaiian or Pacific Islander",
+  "Hawaiian/Pacific Islander",
   "Multiracial",
   "Unreported Race"
 ];
@@ -72,6 +72,15 @@ function barChartConfig (enrollmentData) {
           }
         }
       },
+      // scales: {
+      //   x: {
+      //       ticks: {
+      //           font: {
+      //               size: 12,
+      //           }
+      //       }
+      //   }
+      // },
       responsive: true
     }
   };
@@ -174,7 +183,7 @@ function doughnutChartConfig (enrollmentData) {
 }
 
 let enrollmentChart;
-const plotEnrollmentChart = (enrollmentData, config) => {
+const plotEnrollmentChart = (config) => {
   if (enrollmentChart) {
     enrollmentChart.destroy();
   }
@@ -188,13 +197,13 @@ const updateChart = async () => {
   if (filteredRow) {
     const enrollmentData = transformData(filteredRow);
     if (chartTypeSelect.value == 'bar') {
-      plotEnrollmentChart(enrollmentData, barChartConfig(enrollmentData));
+      plotEnrollmentChart(barChartConfig(enrollmentData));
     } 
     if (chartTypeSelect.value == 'doughnut') {
-      plotEnrollmentChart(enrollmentData, doughnutChartConfig(enrollmentData));
+      plotEnrollmentChart(doughnutChartConfig(enrollmentData));
     }
     if (chartTypeSelect.value == 'polar') {
-      plotEnrollmentChart(enrollmentData, polarChartConfig(enrollmentData));
+      plotEnrollmentChart(polarChartConfig(enrollmentData));
     }
     document.getElementById('no-data-message').style.display = 'none';
   } else {

@@ -8,10 +8,10 @@ body {
 }
 
 .title {
-    font-size: 42px;
+    font-size: 50px;
     text-align: center;
     margin-bottom: 10px;
-    margin-top: 20px;
+    margin-top: 15px;
     font-family: Calibri, sans-serif
 }
 
@@ -29,7 +29,7 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 #school-select,
@@ -57,8 +57,8 @@ body {
         
 .chart-container {
     position: relative;
-    height: 80vh;
-    width: 80vw;
+    height: 75vh;
+    width: 75vw;
     display: flex;
     justify-content: center;
 }
@@ -77,3 +77,124 @@ footer {
     border-top: 1px solid #ccc;
     opacity: 0.8;
 }
+
+
+/* Fancy Button  */
+/* Source: https://getcssscan.com/css-buttons-examples */
+.fancy-button {
+    align-items: center;
+    background-color: #fff;
+    border: 2px solid #000;
+    box-sizing: border-box;
+    color: #000;
+    cursor: pointer;
+    display: inline-flex;
+    fill: #000;
+    font-family: Calibri, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    height: 48px;
+    justify-content: center;
+    letter-spacing: -.5px;
+    line-height: 24px;
+    min-width: 140px;
+    padding: 0 17px;
+    text-align: center;
+    transition: all .3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+  }
+  .fancy-button:focus {
+    color: #171E29;
+  }
+  .fancy-button:hover {
+    border-color: #3399CC;
+    color: #3399CC;
+    fill: #3399CC;
+  }
+  .fancy-button:active {
+    border-color: #3399CC;
+    color: #3399CC;
+    fill: #3399CC;
+  }
+  @media (min-width: 768px) {
+    .fancy-button {
+      min-width: 170px;
+  }
+}
+
+.button-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap:40px;
+    margin-bottom:25px;
+}
+
+/* Animated Title  */
+/* Source: https://alvarotrigo.com/blog/css-text-animations/  */
+.animated-title
+{
+font-family: Calibri, sans-serif;
+background-image: linear-gradient(
+    -225deg,
+    #36A2EB 0%,
+    #0061A4 29%,
+    #9260BA 67%,
+    #A3459B 100%
+);
+background-size: auto auto;
+background-clip: border-box;
+background-size: 200% auto;
+color: #fff;
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: textclip 5s linear infinite;
+display: inline-block;
+    font-size: 100%;
+}
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Blockquote Title Page */
+/* Source: https://codepen.io/jimmycow/pen/LmjVaz */
+.blockquote{
+    font-size: 1.4em;
+    width: 60%;
+    font-family: Calibri, sans-serif;
+    font-style: italic;
+    color: #555555;
+    padding:1.2em 30px 1.2em 75px;
+    border-left: 8px solid #36A2EB ;
+    line-height: 1.6;
+    position: relative;
+    background:#EDEDED;
+  }
+  
+  .blockquote::before{
+    font-family: Calibri, sans-serif;
+    content: "\201C";
+    color:#36A2EB;
+    font-size: 4em;
+    position: absolute;
+    left: 10px;
+    top: -10px;
+  }
+  
+  .blockquote::after{
+    content: '';
+  }
+  
+  .blockquote span{
+    display: block;
+    color:#333333;
+    font-style: normal;
+    font-weight: bold;
+    margin-top: 1em;
+  }
