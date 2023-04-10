@@ -91,14 +91,14 @@ footer {
     display: inline-flex;
     fill: #000;
     font-family: Calibri, sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    height: 48px;
+    font-size: 20px;
+    font-weight: 525;
+    height: 55px;
     justify-content: center;
     letter-spacing: -.5px;
     line-height: 24px;
-    min-width: 140px;
-    padding: 0 17px;
+    min-width: 170px;
+    padding: 0 20px;
     text-align: center;
     transition: all .3s;
     user-select: none;
@@ -109,9 +109,9 @@ footer {
     color: #171E29;
   }
   .fancy-button:hover {
-    border-color: #3399CC;
-    color: #3399CC;
-    fill: #3399CC;
+    border-color: #0061A4;
+    color: #0061A4;
+    fill: #0061A4;
   }
   .fancy-button:active {
     border-color: #3399CC;
@@ -129,8 +129,8 @@ footer {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap:40px;
-    margin-bottom:25px;
+    gap:50px;
+    margin-bottom:30px;
 }
 
 /* Animated Title  */
