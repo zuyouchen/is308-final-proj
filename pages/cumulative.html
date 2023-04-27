@@ -13,5 +13,58 @@
     <link rel="stylesheet" href="../styles.css">
 </head>    
 <body>
-    <h1 style="font-family: Calibri"">🚧 Under Construction 🚧</h1>
+    
+    <h1 class="animated-title" style="font-size:40px; margin-bottom:10px; margin-top:10px">Cumulative Enrollment Data</h1>
+
+    <div class="external-container">
+        <div class="selections-container">
+            <label for="semester-select-cumulative">Select Semester (Cumulative):</label>
+            <select id="semester-select-cumulative">
+                <option value="fa">Fall</option>
+                <option value="sp">Spring</option>
+                <option value="su">Summer</option>
+            </select>
+
+            <label for="level-select-cumulative">Select Level:</label>
+            <select id="level-select-cumulative">
+                <option value="Undergraduate ">Undergraduate </option>
+                <option value="Graduate ">Graduate </option>
+                <option value="Professional ">Professional </option>
+            </select>
+
+        </div>
+
+        <div class="racial-category-select"> Select Racial Categories (All by Default):
+            <input type="checkbox" id="Caucasian-Box" value="Caucasian">
+            <label for="Caucasian-Box">Caucasian</label>
+
+            <input type="checkbox" id="Asian-Box" value="Asian">
+            <label for="Asian-Box">Asian</label>
+
+            <input type="checkbox" id="Hispanic-Box" value="Hispanic">
+            <label for="Hispanic-Box">Hispanic</label>
+
+            <input type="checkbox" id="African-American-Box" value="African-American">
+            <label for="African-American-Box">African-American</label>
+
+            <input type="checkbox" id="Native-American-Box" value="Native-American">
+            <label for="Native-American-Box">Native-American</label>
+
+            <input type="checkbox" id="Hawaiian-PacIslander-Box" value="Hawaiian/Pacific Islander">
+            <label for="Hawaiian-PacIslander-Box">Hawaiian/Pacific Islander</label>
+
+            <input type="checkbox" id="Multiracial-Box" value="Multiracial">
+            <label for="Multiracial-Box">Multiracial</label>
+
+            <input type="checkbox" id="Unreported-Race-Box" value="Unreported Race">
+            <label for="Unreported-Race-Box">Unreported Race</label>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="enrollment-line-chart"></canvas>
+        </div>
+
+    </div>
+    <footer>Evan Chen, 4/26/23. Data taken from the <a href="https://www.dmi.illinois.edu/">UIUC Division of Management Information (DMI)</a></footer>
+    <script src="../js/cumulative.js"></script>
 </body>

@@ -35,12 +35,15 @@ body {
 #school-select,
 #level-select,
 #term-select,
+#level-select-cumulative,
+#semester-select-cumulative,
 #chart-type-select {
     font-family: Calibri, sans-serif;
     display: block;
     margin: 5px;
     padding: 5px;
 }
+
 .no-data-found {
     font-family: Calibri, sans-serif;
     display: none;
@@ -198,3 +201,13 @@ display: inline-block;
     font-weight: bold;
     margin-top: 1em;
   }
+
+.racial-category-select {
+    font-family: Calibri, sans-serif;
+    display: block;
+    margin-top: -5px;
+    margin-bottom: 20px;
+}
+.racial-category-select input[type="checkbox"] {
+  vertical-align: middle;
+}
