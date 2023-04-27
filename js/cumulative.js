@@ -29,11 +29,11 @@ checkboxes.forEach(checkbox => {
 // Define the lines for the line chart
 const lines = [
     { key: "Caucasian", label: "Caucasian", borderColor: "rgba(54, 162, 235, 1)", backgroundColor: "rgba(54, 162, 235, 0.5)" },
-    { key: "All Asian", label: "Asian", secondaryLabel: "Asian", borderColor: "rgba(90, 142, 226, 1)", backgroundColor: "rgba(90, 142, 226, 0.5)" },
+    { key: "All Asian", label: "Asian", secondaryKey: "Asian American", borderColor: "rgba(90, 142, 226, 1)", backgroundColor: "rgba(90, 142, 226, 0.5)" },
     { key: "Hispanic", label: "Hispanic", borderColor: "rgba(0, 97, 164, 1)", backgroundColor: "rgba(0, 97, 164, 0.5)" },
-    { key: "All   African American", label: "African-American", secondaryLabel: "African American", borderColor: "rgba(121, 120, 210, 1)", backgroundColor: "rgba(121, 120, 210, 0.5)" },
-    { key: "All    Native American", label: "Native-American", secondaryLabel: "Native American", borderColor: "rgba(146, 96, 186, 1)", backgroundColor: "rgba(146, 96, 186, 0.5)" },
-    { key: "All Hawaiian/ Pac Isl", label: "Hawaiian/Pacific Islander", borderColor: "rgba(163, 69, 155, 1)", backgroundColor: "rgba(163, 69, 155, 0.5)" },
+    { key: "All   African American", label: "African-American", secondaryKey: "African American", borderColor: "rgba(121, 120, 210, 1)", backgroundColor: "rgba(121, 120, 210, 0.5)" },
+    { key: "All    Native American", label: "Native-American", secondaryKey: "Native American", borderColor: "rgba(146, 96, 186, 1)", backgroundColor: "rgba(146, 96, 186, 0.5)" },
+    { key: "All Hawaiian/ Pac Isl", label: "Hawaiian/Pacific Islander", secondaryKey: "Hawaiian/Pacific Isl", borderColor: "rgba(163, 69, 155, 1)", backgroundColor: "rgba(163, 69, 155, 0.5)" },
     { key: "Multiracial", label: "Multiracial", borderColor: "rgba(171, 37, 118, 1)", backgroundColor: "rgba(171, 37, 118, 0.5)" },
     { key: "Unreported Race", label: "Unreported Race", borderColor: "rgba(0, 40, 97, 1)", backgroundColor: "rgba(0, 40, 97, 0.5)" }
 ];
@@ -95,15 +95,28 @@ const plotEnrollmentChart = (filteredData) => {
     // We default to displaying all lines, but then only display selectedRaceValues
     const datasets = selectedRaceValues.length === 0 ? 
         lines.map(line => ({
-        label: line.label ?? line.secondaryLabel,
-        data: filteredData.map(row => parseInt(row[line.key])),
+        label: line.label,
+        // We use the key but sometimes secondaryKey (when they didn't record "All [X]")
+        data: filteredData.map(row => {
+          if (!isNaN(row[line.secondaryKey])) {
+              return parseInt(row[line.secondaryKey]);
+          } else {
+              return parseInt(row[line.key]);
+          }
+        }),
         borderColor: line.borderColor,
         backgroundColor: line.backgroundColor
     }))
     : lines.filter(line => selectedRaceValues.includes(line.label))
         .map(line => ({
           label: line.label ?? line.secondaryLabel,
-          data: filteredData.map(row => parseInt(row[line.key])),
+          data: filteredData.map(row => {
+            if (!isNaN(row[line.secondaryKey])) {
+                return parseInt(row[line.secondaryKey]);
+            } else {
+                return parseInt(row[line.key]);
+            }
+          }),          
           borderColor: line.borderColor,
           backgroundColor: line.backgroundColor
     }));
@@ -170,7 +183,7 @@ const plotEnrollmentChart = (filteredData) => {
 }
 
 const updateChart = async () => {
-    const data = await fetchData(`https://raw.githubusercontent.com/zuyouchen/is308-final-proj/main/data/cumulative_fa05_sp23.csv`);
+    const data = await fetchData(`https://raw.githubusercontent.com/zuyouchen/is308-final-proj/main/data/cumulative_fa05-sp23.csv`);
     const filteredData = filterData(data);
     if (filteredData) {
         plotEnrollmentChart(filteredData);
