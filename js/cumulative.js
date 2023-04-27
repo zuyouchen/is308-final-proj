@@ -1,6 +1,8 @@
 Chart.defaults.font.family = 'Calibri'
 const semesterSelect = document.getElementById("semester-select-cumulative");
-const levelSelect = document.getElementById("level-select-cumulative");
+const levelSelect = document.getElementById("level-select");
+const chartSelect = document.getElementById("chart-type-select");
+const axisScaleSelect = document.getElementById('axis-scale-select');
 
 // Track the selected racial categories as selectedRaceValues
 const checkboxes = document.querySelectorAll('.racial-category-select input[type="checkbox"]');
@@ -85,6 +87,7 @@ function convertTermAndYear(str) {
     // Return full term and year
     return term + " " + fullYear;
 }
+
 let enrollmentChart;
 const plotEnrollmentChart = (filteredData) => {
     const labels = filteredData.map((row) => convertTermAndYear(row.Term));
@@ -105,7 +108,7 @@ const plotEnrollmentChart = (filteredData) => {
           backgroundColor: line.backgroundColor
     }));
     
-    const config = {
+    let config = {
         type: "line",
         data: {
           labels,
@@ -114,12 +117,49 @@ const plotEnrollmentChart = (filteredData) => {
         options: {
           scales: {
             y: {
-              type: 'logarithmic',
+              type: 'linear',
               beginAtZero: true,
             },
+            x: {
+              stacked: false,
+            }
           },
         },
     };
+
+    switch(chartSelect.value) {
+        case "line":
+            config.type = 'line';
+            config.options.scales.y.stacked = false
+            config.options.scales.x.stacked = false
+            config.options.scales.y.type = 'linear'
+            break;
+        case "bar":
+            config.type = 'bar';
+            config.options.scales.y.stacked = false
+            config.options.scales.x.stacked = false
+            config.options.scales.y.type = 'linear'
+            break;
+        case "bar-stacked":
+            config.type = 'bar';
+            config.options.scales.y.stacked = true
+            config.options.scales.x.stacked = true
+            config.options.scales.y.type = 'linear'
+            break;
+        default:
+            break;
+    }
+
+    switch(axisScaleSelect.value) {
+        case "linear":
+            config.options.scales.y.type = 'linear'
+            break;
+        case "logarithmic":
+            config.options.scales.y.type = 'logarithmic'
+            break;
+        default:
+            break;
+    }
     
     if (enrollmentChart) {
         enrollmentChart.destroy();
@@ -130,7 +170,7 @@ const plotEnrollmentChart = (filteredData) => {
 }
 
 const updateChart = async () => {
-    const data = await fetchData(`https://raw.githubusercontent.com/zuyouchen/is308-final-proj/main/data/cumulative_fa17_sp23.csv`);
+    const data = await fetchData(`https://raw.githubusercontent.com/zuyouchen/is308-final-proj/main/data/cumulative_fa05-sp23.csv`);
     const filteredData = filterData(data);
     if (filteredData) {
         plotEnrollmentChart(filteredData);
@@ -140,5 +180,7 @@ const updateChart = async () => {
 
 semesterSelect.addEventListener("change", updateChart);
 levelSelect.addEventListener("change", updateChart);
+chartSelect.addEventListener("change", updateChart);
+axisScaleSelect.addEventListener("change", updateChart);
 
 updateChart();

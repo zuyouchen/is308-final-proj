@@ -35,8 +35,8 @@ body {
 #school-select,
 #level-select,
 #term-select,
-#level-select-cumulative,
 #semester-select-cumulative,
+#axis-scale-select,
 #chart-type-select {
     font-family: Calibri, sans-serif;
     display: block;
