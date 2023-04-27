@@ -13,20 +13,29 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="title-container" style="text-align: center; margin-top: 0; font-size:100px; margin-bottom:-25px">
+    <div class="title-container" style="text-align: center; margin-top: -50px; font-size:100px; margin-bottom:-50px">
         <h1 class="animated-title">UIUC Enrollment Data</h1>
     </div>
 
     <div class="button-container">
-        <button class="fancy-button" role="button" onclick="location.href='pages/granular.html'">See Granular Statistics</button>
-        <button class="fancy-button" role="button" onclick="location.href='pages/cumulative.html'">See Cumulative Statistics</button>
+        <button class="fancy-button" role="button" onclick="location.href='pages/granular.html'">See Granular Visualizations</button>
+        <button class="fancy-button" role="button" onclick="location.href='pages/cumulative.html'">See Cumulative Visualizations</button>
+    </div>
+
+    <div class="main-description">
+        Inspired by <b>IS308: Race, Gender, and Information Technology</b>, this website aims to provide <b>clean, customizable data visualizations</b> of University of Illinois: Urbana-Champaign (UIUC) enrollment statistics <b>by race</b>.
+        The <b>navigation buttons</b> above lead to the following <b>subpages</b>:
+        <ol> 
+            <li><b>Granular:</b> Specific to a unique combination of <b>term, school, and student level</b>. <i>2017 - 2023.</i></li>
+            <li><b>Cumulative:</b> Time-series specific to <b>semester</b> (fall, spring, or summer) and <b>student level</b>. <i>2005 - 2023.</i></li>
+        </ol>
+        I encourage you to <b>explore the visualizations</b> and draw your own <b>conclusions</b> (or further lines of <b>inquiry</b>) from the data! Best stated by D'Ignazio and Klein, 
     </div>
 
     <blockquote class="blockquote">
         Examining power means naming and explaining the forces of oppression that are so baked into our daily lives—and into our datasets, our databases, and our algorithms—that we often don’t even see them.        
         <span>Catherine D'Ignazio and Lauren Klein, <i>Data Feminism</i></span>
     </blockquote>
-
 
     <footer>Evan Chen, 4/26/23. Data taken from the <a href="https://www.dmi.illinois.edu/">UIUC Division of Management Information (DMI)</a></footer>
 </body>

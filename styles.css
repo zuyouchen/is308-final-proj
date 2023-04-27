@@ -133,7 +133,7 @@ footer {
     align-items: center;
     justify-content: center;
     gap:50px;
-    margin-bottom:30px;
+    margin-bottom:20px;
 }
 
 /* Animated Title  */
@@ -168,7 +168,7 @@ display: inline-block;
 /* Blockquote Title Page */
 /* Source: https://codepen.io/jimmycow/pen/LmjVaz */
 .blockquote{
-    font-size: 1.4em;
+    font-size: 1.2em;
     width: 60%;
     font-family: Calibri, sans-serif;
     font-style: italic;
@@ -210,4 +210,17 @@ display: inline-block;
 }
 .racial-category-select input[type="checkbox"] {
   vertical-align: middle;
+}
+
+.main-description {
+  font-size: 1.2em;
+  width: 60%;
+  font-family: Calibri, sans-serif;
+  color: #555555;
+  border-right: 8px solid #9260BA ;
+  padding:1.2em 30px 1.2em 75px;
+  line-height: 1.6;
+  position: relative;
+  background:#EDEDED;
+  margin-bottom: 0px;
 }
