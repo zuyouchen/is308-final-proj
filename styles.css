@@ -202,6 +202,7 @@ display: inline-block;
     margin-top: 1em;
   }
 
+/* Select Boxes (Cumulative Page) */
 .racial-category-select {
     font-family: Calibri, sans-serif;
     display: block;
@@ -212,6 +213,7 @@ display: inline-block;
   vertical-align: middle;
 }
 
+/* Main Page description */
 .main-description {
   font-size: 1.2em;
   width: 60%;
