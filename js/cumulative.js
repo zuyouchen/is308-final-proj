@@ -28,14 +28,14 @@ checkboxes.forEach(checkbox => {
 
 // Define the lines for the line chart
 const lines = [
-    { key: "Caucasian", label: "Caucasian", borderColor: "rgba(54, 162, 235, 1)", backgroundColor: "rgba(54, 162, 235, 0.5)" },
-    { key: "All Asian", label: "Asian", secondaryKey: "Asian American", borderColor: "rgba(90, 142, 226, 1)", backgroundColor: "rgba(90, 142, 226, 0.5)" },
-    { key: "Hispanic", label: "Hispanic", borderColor: "rgba(0, 97, 164, 1)", backgroundColor: "rgba(0, 97, 164, 0.5)" },
-    { key: "All   African American", label: "African-American", secondaryKey: "African American", borderColor: "rgba(121, 120, 210, 1)", backgroundColor: "rgba(121, 120, 210, 0.5)" },
-    { key: "All    Native American", label: "Native-American", secondaryKey: "Native American", borderColor: "rgba(146, 96, 186, 1)", backgroundColor: "rgba(146, 96, 186, 0.5)" },
-    { key: "All Hawaiian/ Pac Isl", label: "Hawaiian/Pacific Islander", secondaryKey: "Hawaiian/Pacific Isl", borderColor: "rgba(163, 69, 155, 1)", backgroundColor: "rgba(163, 69, 155, 0.5)" },
-    { key: "Multiracial", label: "Multiracial", borderColor: "rgba(171, 37, 118, 1)", backgroundColor: "rgba(171, 37, 118, 0.5)" },
-    { key: "Unreported Race", label: "Unreported Race", borderColor: "rgba(0, 40, 97, 1)", backgroundColor: "rgba(0, 40, 97, 0.5)" }
+    { key: "Caucasian", label: "Caucasian", borderColor: "rgba(54, 162, 235, 1)", backgroundColor: "rgba(54, 162, 235, 0.7)" },
+    { key: "All Asian", label: "Asian", secondaryKey: "Asian American", borderColor: "rgba(90, 142, 226, 1)", backgroundColor: "rgba(90, 142, 226, 0.7)" },
+    { key: "Hispanic", label: "Hispanic", borderColor: "rgba(0, 97, 164, 1)", backgroundColor: "rgba(0, 97, 164, 0.7)" },
+    { key: "All   African American", label: "African-American", secondaryKey: "African American", borderColor: "rgba(121, 120, 210, 1)", backgroundColor: "rgba(121, 120, 210, 0.7)" },
+    { key: "All    Native American", label: "Native-American", secondaryKey: "Native American", borderColor: "rgba(146, 96, 186, 1)", backgroundColor: "rgba(146, 96, 186, 0.7)" },
+    { key: "All Hawaiian/ Pac Isl", label: "Hawaiian/Pacific Islander", secondaryKey: "Hawaiian/Pacific Isl", borderColor: "rgba(163, 69, 155, 1)", backgroundColor: "rgba(163, 69, 155, 0.7)" },
+    { key: "Multiracial", label: "Multiracial", borderColor: "rgba(171, 37, 118, 1)", backgroundColor: "rgba(171, 37, 118, 0.7)" },
+    { key: "Unreported Race", label: "Unreported Race", borderColor: "rgba(0, 40, 97, 1)", backgroundColor: "rgba(0, 40, 97, 0.7" }
 ];
 
 const fetchData = async (url) => {
