@@ -219,7 +219,7 @@ display: inline-block;
   width: 60%;
   font-family: Calibri, sans-serif;
   color: #555555;
-  border-right: 8px solid #9260BA ;
+  border-left: 8px solid #9260BA ;
   padding:1.2em 30px 1.2em 75px;
   line-height: 1.6;
   position: relative;
