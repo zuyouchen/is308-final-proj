@@ -216,13 +216,14 @@ display: inline-block;
 /* Main Page description */
 .main-description {
   font-size: 1.2em;
-  width: 60%;
+  width: 63%;
   font-family: Calibri, sans-serif;
   color: #555555;
   border-left: 8px solid #9260BA ;
-  padding:1.2em 30px 1.2em 75px;
+  padding:1.2em 30px 1.2em 30px;
   line-height: 1.6;
   position: relative;
   background:#EDEDED;
   margin-bottom: 0px;
+  text-align: left;
 }
